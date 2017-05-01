@@ -12,7 +12,7 @@ public class Inspect {
      *
      * @param inspect The interface of inspect.
      */
-	public Inspect(String inspected) {
+	public Inspect (String inspected) {
         this.inspected = inspected;
     }
 	
@@ -20,7 +20,7 @@ public class Inspect {
 	 * The method to print the <code>inspected</code> object.
 	 * 
 	 */
-	public String toString (){
+	public String toString () {
 		StringBuilder inspectBuilder = new StringBuilder();
 		inspectBuilder.append(inspected);
 		return inspectBuilder.toString();
