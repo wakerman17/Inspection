@@ -21,9 +21,8 @@ public class Inspect {
 	 * 
 	 */
 	public String toString (){
-		StringBuilder inspectMaker = new StringBuilder();
-		inspectMaker.append(inspected);
-		return inspectMaker.toString();
+		StringBuilder inspectBuilder = new StringBuilder();
+		inspectBuilder.append(inspected);
+		return inspectBuilder.toString();
 	}
-	
 }
