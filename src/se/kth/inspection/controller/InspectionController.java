@@ -5,7 +5,7 @@ import se.kth.inspection.util.Inspect;
 import se.kth.inspection.util.Vehicle;
 
 /**
- * Controller which handles what to inspect
+ * Controller which handles what to inspect.
  *
  */
 public class InspectionController {
