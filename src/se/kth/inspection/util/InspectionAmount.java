@@ -40,8 +40,8 @@ public class InspectionAmount {
 	  * 
 	  */
 	 public String toString (){
-		 StringBuilder amountMaker = new StringBuilder();
-		 amountMaker.append(inspectionAmount);
-		 return amountMaker.toString();
+		 StringBuilder inspectionAmountBuilder = new StringBuilder();
+		 inspectionAmountBuilder.append(inspectionAmount);
+		 return inspectionAmountBuilder.toString();
 	 }
 }
