@@ -18,7 +18,7 @@ public class Result {
     }
 	
     /**
-	 * The method to print the <code>Amount</code> object 
+	 * The method to print the <code>Amount</code> object.
 	 * 
 	 */
 	public String toString (){
