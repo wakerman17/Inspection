@@ -10,11 +10,11 @@ import se.kth.inspection.util.Vehicle;
  */
 public class DatabaseManager {
 	
-	private Inspect[] inspect = new Inspect[3];
+	private Inspect[] inspect = 	new Inspect[3];
 	private Inspect[] resultOfAll = new Inspect[3];
 	private int inspectionAmountPrimitive;
-	private int inspectIndex = -1;
-	private int resultIndex = 0;
+	private int inspectIndex = 		-1;
+	private int resultIndex = 		0;
 	private InspectionAmount inspectionAmount;
 	
 	/**
@@ -55,19 +55,19 @@ public class DatabaseManager {
 	 * @return The array with all inspections
 	 */
 	public Inspect[] getInspection (Vehicle vehicle) {
-		return inspect = inspectionList(vehicle);
+		return inspect = 			inspectionList(vehicle);
 	}
 	
 	
 	private InspectionAmount howManyInspectionsPrivate (Vehicle vehicle) {
 		inspectionAmountPrimitive = inspect.length;
-		inspectionAmount = new InspectionAmount(inspectionAmountPrimitive);
+		inspectionAmount = 			new InspectionAmount(inspectionAmountPrimitive);
 		return inspectionAmount;
 	}
 	
 	private Inspect whatToInspectPrivate (Vehicle vehicle) {
 		inspectIndex++;
-		inspect = inspectionList(vehicle);
+		inspect = 					inspectionList(vehicle);
 		return inspect[inspectIndex];
 	}
 	
