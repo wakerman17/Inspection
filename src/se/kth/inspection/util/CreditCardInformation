@@ -68,6 +68,7 @@ public class CreditCardInformation {
     /**
      * The method to print the <code>CreditCardInformation</code> object.
      * 
+     * @return The <code>String</code> of the <code>CreditCardInformation</code>.
      */
     public String toString () {
 		StringBuilder cardBuilder = new StringBuilder();
