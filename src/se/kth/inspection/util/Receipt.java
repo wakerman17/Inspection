@@ -28,12 +28,11 @@ public class Receipt {
 	/**
 	 * Creates text which is written in the <code>System.out</code>.
 	 * 
-	 * @return The <code>String</code> of the receipt.
+	 * @return The <code>String</code> of the <code>receipt</code>.
 	 */
 	public String receiptString () {
 		return receiptStringPrivate();
 	}
-	
 	
 	private String receiptStringPrivate () {
 		StringBuilder receiptBuilder = new StringBuilder();
