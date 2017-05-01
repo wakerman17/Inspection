@@ -55,6 +55,5 @@ public class CostManager {
 			return objectCost;
 		else
 			return null;
-		
 	}
 }
