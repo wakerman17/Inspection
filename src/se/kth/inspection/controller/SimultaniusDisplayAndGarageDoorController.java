@@ -5,7 +5,7 @@ import se.kth.inspection.integration.Display;
 import se.kth.inspection.model.DisplayNext;
 
 /**
- * Controller which takes care of the display and garage door for a new inspection
+ * Controller which takes care of the display and garage door for a new inspection.
  *
  */
 public class SimultaniusDisplayAndGarageDoorController {
@@ -28,7 +28,7 @@ public class SimultaniusDisplayAndGarageDoorController {
 	}
 	
 	/**
-	 * Takes care of all of the operations during a new inspection
+	 * Takes care of all of the operations during a new inspection.
 	 * 
 	 */
 	public void newInspection () {
