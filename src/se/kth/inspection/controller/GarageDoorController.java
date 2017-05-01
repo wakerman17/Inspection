@@ -27,5 +27,4 @@ public class GarageDoorController {
 	public void activateDoor (String status) {
 		garageDoor.activateDoor(status);
 	}
-	
 }
