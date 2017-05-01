@@ -1,7 +1,7 @@
 package se.kth.inspection.util;
 
 /**
- * The thing to inspect
+ * The thing to inspect.
  *
  */
 public class Inspect {
@@ -17,7 +17,7 @@ public class Inspect {
     }
 	
 	/**
-	 * The method to print the <code>inspected</code> object 
+	 * The method to print the <code>inspected</code> object.
 	 * 
 	 */
 	public String toString (){
