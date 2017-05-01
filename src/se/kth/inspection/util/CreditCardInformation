@@ -20,53 +20,53 @@ public class CreditCardInformation {
 		this.cvc = 			cvc;
 	}
 	
-    /**
-     * Get the value of pin
+	/**
+     * Get the value of pin.
      *
-     * @return the value of pin
+     * @return the value of pin.
      */
     public int getPin () {
         return pin;
     }
     
-    /**
-     * Get the value of number
+	/**
+     * Get the value of number.
      *
-     * @return the value of number
+     * @return the value of number.
      */
     public int getNumber () {
         return number;
     }
     
-    /**
-     * Get the name of the holder
+	/**
+     * Get the name of the holder.
      *
-     * @return the name of the holder
+     * @return the name of the holder.
      */
     public String getHolder () {
         return holder;
     }
     
-    /**
-     * Get the expire date
+	/**
+     * Get the expire date.
      *
-     * @return the expire tate
+     * @return the expire date.
      */
     public String getExpireDate () {
         return expireDate;
     }
     
-    /**
-     * Get the value of cvc
+	/**
+     * Get the value of cvc.
      *
-     * @return the value of cvc
+     * @return the value of cvc.
      */
     public int getCvc () {
         return cvc;
     }
     
     /**
-     * The method to print the <code>CreditCardInformation</code> object 
+     * The method to print the <code>CreditCardInformation</code> object.
      * 
      */
     public String toString (){
@@ -79,5 +79,5 @@ public class CreditCardInformation {
 		cardBuilder.append("CVC = " + cvc + "\n");
 		
 		return cardBuilder.toString();
-    }
+	}
 }
