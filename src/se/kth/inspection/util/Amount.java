@@ -20,6 +20,7 @@ public class Amount {
 	 /**
 	  * The method to print the <code>Amount</code> object.
 	  * 
+	  * @return The <code>String</code> of the <code>Amount</code>.
 	  */
 	 public String toString () {
 		 StringBuilder amountBuilder = new StringBuilder();
