@@ -1,94 +1,47 @@
-package se.kth.inspection.integration;
+package se.kth.inspection.controller;
 
-import se.kth.inspection.util.Inspect;
+import se.kth.inspection.util.Amount;
 import se.kth.inspection.util.InspectionAmount;
 import se.kth.inspection.util.Vehicle;
+import se.kth.inspection.integration.DatabaseManager;
+import se.kth.inspection.model.CostManager;
 
 /**
- * Handles all calls to the database.
+ * Controller which takes care of the cost.
  *
  */
-public class DatabaseManager {
+public class CostController {
 	
-	private Inspect[] inspect = 	new Inspect[3];
-	private Inspect[] resultOfAll = new Inspect[3];
-	private int inspectionAmountPrimitive;
-	private int inspectIndex = 		-1;
-	private int resultIndex = 		0;
+	private DatabaseManager databaseManager;
+	private CostManager costManager;
 	private InspectionAmount inspectionAmount;
+	private Amount cost;
 	
 	/**
-	 * Calculates the amount of inspections.
-	 *
-	 * @param vehicle Information about the vehicle.
-	 * @return The amount of inspections.
+     * Creates a new instance.
+     *
+     * @param databaseManager Interface to databaseManager.
+     * @param costManager Interface to costManager.
 	 */
-	public InspectionAmount howManyInspections (Vehicle vehicle) {
-		return howManyInspectionsPrivate(vehicle);
-	}
-	
-	/**
-	 * Gives information what to insect
-	 *
-	 * @param vehicle Information about the vehicle.
-	 * @return What to inspect.
-	 */
-	public Inspect whatToInspect (Vehicle vehicle) {
-		return whatToInspectPrivate(vehicle);
+	public CostController (DatabaseManager databasemManager, CostManager costManager){
+		this.databaseManager = databasemManager;
+		this.costManager = costManager;
 	}
 	
 	/**
-	 * Save the results. If all inspections are made all of the results return.
-	 * 
-	 * @param result The result of the inspection.
-	 * @param vehicle Information about the vehicle.
-	 * @return The array with all of the results if the last inspection are made. Otherwise null.
+     * Handles calls to calculate cost of inspection.
+     *
+     * @param vehicle Information about the vehicle.
+     * @return Cost of the inspection
 	 */
-	public Inspect[] saveResult (String result, Vehicle vehicle) {
-		return saveResultPrivate(result, vehicle);
-	}
-	
-	/**
-	 * Get the array of inspections
-	 * 
-	 * @param vehicle Information about the vehicle.
-	 * @return The array with all inspections
-	 */
-	public Inspect[] getInspection (Vehicle vehicle) {
-		return inspect = 			inspectionList(vehicle);
+	public Amount whatToPay (Vehicle vehicle) {
+		return whatToPayPrivate(vehicle);
 	}
 	
 	
-	private InspectionAmount howManyInspectionsPrivate (Vehicle vehicle) {
-		inspectionAmountPrimitive = inspect.length;
-		inspectionAmount = 			new InspectionAmount(inspectionAmountPrimitive);
-		return inspectionAmount;
-	}
-	
-	private Inspect whatToInspectPrivate (Vehicle vehicle) {
-		inspectIndex++;
-		inspect = 					inspectionList(vehicle);
-		return inspect[inspectIndex];
-	}
-	
-	private Inspect[] saveResultPrivate (String result, Vehicle vehicle) {
-		resultOfAll[resultIndex] = new Inspect(result);
-		resultIndex++;
-		if (resultIndex >= inspect.length){
-			return resultOfAll;
-		}
-		return null;
-	}
-	
-	//Method only used by implementation
-	private Inspect[] inspectionList (Vehicle vehicle) {
-		String regNo = vehicle.getVehiclePrimitive();
-		if (regNo == "ABC123"){
-			inspect[0] = new Inspect("Breakers");
-			inspect[1] = new Inspect("Engine");
-			inspect[2] = new Inspect("Windows");
-			return inspect;
-		}
-		return null;
+	private Amount whatToPayPrivate (Vehicle vehicle) {
+		inspectionAmount = databaseManager.howManyInspections(vehicle);
+		cost = costManager.whatToPay(inspectionAmount);
+		return cost;
 	}
 }
