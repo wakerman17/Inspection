@@ -24,22 +24,22 @@ import se.kth.inspection.view.View;
  */
 public class Main {
 	public static void main (String[] args) {
-		GarageDoor garageDoor = new GarageDoor();
-		DisplayNext displayNext = new DisplayNext();
-		Display display = new Display();
-		QueueNumber queueNumber = new QueueNumber();
+		GarageDoor garageDoor = 				new GarageDoor();
+		DisplayNext displayNext = 				new DisplayNext();
+		Display display = 					new Display();
+		QueueNumber queueNumber = 				new QueueNumber();
 		new DisplayNext(queueNumber, display);
 		SimultaniusDisplayAndGarageDoorController simuContr = new SimultaniusDisplayAndGarageDoorController(garageDoor, displayNext, display);
-		GarageDoorController garageDoorContr = new GarageDoorController(garageDoor);
-		DatabaseManager databasemManager = new DatabaseManager();
-		CostManager costManager = new CostManager();
-		CostController costContr = new CostController(databasemManager, costManager);
+		GarageDoorController garageDoorContr = 			new GarageDoorController(garageDoor);
+		DatabaseManager databasemManager = 			new DatabaseManager();
+		CostManager costManager = 				new CostManager();
+		CostController costContr = 				new CostController(databasemManager, costManager);
 		PaymentAuthorizationSystem paymentAuthorizationSystem = new PaymentAuthorizationSystem();
-		Printer printer = new Printer();
-		PaymentController paymentContr = new PaymentController(paymentAuthorizationSystem, costManager, printer);
-		InspectionController inspectionContr = new InspectionController(databasemManager);
-		PrintCheck printCheck = new PrintCheck();
-		ResultController resultContr = new ResultController(printCheck);
+		Printer printer = 					new Printer();
+		PaymentController paymentContr = 			new PaymentController(paymentAuthorizationSystem, costManager, printer);
+		InspectionController inspectionContr = 			new InspectionController(databasemManager);
+		PrintCheck printCheck = 				new PrintCheck();
+		ResultController resultContr = 				new ResultController(printCheck);
 		new PrintCheck (printer, databasemManager);
 		new View(garageDoorContr, simuContr, costContr, paymentContr, inspectionContr, resultContr).sampleExecution();
 	}
