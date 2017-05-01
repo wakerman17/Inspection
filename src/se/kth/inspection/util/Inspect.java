@@ -19,6 +19,7 @@ public class Inspect {
 	/**
 	 * The method to print the <code>inspected</code> object.
 	 * 
+	 * @return The <code>String</code> of the <code>inspect</code>
 	 */
 	public String toString () {
 		StringBuilder inspectBuilder = new StringBuilder();
