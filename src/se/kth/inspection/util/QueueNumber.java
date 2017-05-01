@@ -31,8 +31,8 @@ public class QueueNumber {
 	 * 
 	 */
     public String toString (){
-		StringBuilder queueNumberMaker = new StringBuilder();
-		queueNumberMaker.append(queueNumberPrimitive);
-		return queueNumberMaker.toString();
+		StringBuilder queueNumberBuilder = new StringBuilder();
+		queueNumberBuilder.append(queueNumberPrimitive);
+		return queueNumberBuilder.toString();
     }
 }
