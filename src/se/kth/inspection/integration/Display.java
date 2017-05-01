@@ -14,12 +14,12 @@ public class Display {
      * 
      * @param queueNumber The queue number to show.
      */
-	public void showQueueNumber(QueueNumber queueNumber){
+	public void showQueueNumber (QueueNumber queueNumber) {
 		showQueueNumberprivate(queueNumber);
 	}
 	
 	
-	private void showQueueNumberprivate(QueueNumber queueNumber){
+	private void showQueueNumberprivate (QueueNumber queueNumber) {
 		System.out.println("Queue number is " + queueNumber);
 	}
 }
