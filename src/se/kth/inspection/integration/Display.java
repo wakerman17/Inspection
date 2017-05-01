@@ -3,7 +3,7 @@ package se.kth.inspection.integration;
 import se.kth.inspection.util.QueueNumber;
 
 /**
- * Handles calls to the the Display
+ * Handles calls to the the Display.
  * 
  */
 public class Display {
@@ -12,7 +12,7 @@ public class Display {
      * Shows the the specified QueueNumber. This implementation prints to
      * <code>System.out</code> instead of the display.
      * 
-     * @param queueNumber The queue number to show
+     * @param queueNumber The queue number to show.
      */
 	public void showQueueNumber(QueueNumber queueNumber){
 		showQueueNumberprivate(queueNumber);
