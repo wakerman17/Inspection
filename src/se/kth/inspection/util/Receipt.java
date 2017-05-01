@@ -1,7 +1,6 @@
 package se.kth.inspection.util;
 
 import se.kth.inspection.model.CostManager;
-import se.kth.inspection.model.CreditCardInformation;
 
 /**
  * A receipt of a inspection.
@@ -37,12 +36,15 @@ public class Receipt {
 	
 	
 	private String receiptStringPrivate () {
-		StringBuilder builder = new StringBuilder();
-		builder.append("\nVehicle Inspection\n");
+		StringBuilder receiptBuilder = new StringBuilder();
+		
+		receiptBuilder.append("\nVehicle Inspection Receipt\n");
 		cost = costManager.getCost();
-		builder.append("Cost: " + cost + "\n");
+		
+		receiptBuilder.append("Cost: " + cost + "\n");
 		String holder = creditCardInformation.getHolder();
-		builder.append("Holder of vehicle: " + holder + "\n");
-		return builder.toString();
+		
+		receiptBuilder.append("Holder of vehicle: " + holder + "\t\t\n");
+		return receiptBuilder.toString();
 	}
 }
