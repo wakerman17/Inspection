@@ -1,6 +1,6 @@
 package se.kth.inspection.util;
 /**
- * The anmount of inspections that has to be done
+ * The anmount of inspections that has to be done.
  * 
  */
 public class InspectionAmount {
@@ -20,7 +20,7 @@ public class InspectionAmount {
 	 /**
 	  * Get the InsoectionAmount in an int.
 	  * 
-	  * @return The inspectionAmount in an int
+	  * @return The inspectionAmount in an int.
 	  */
 	 public InspectionAmount getInspectionAmount(){
 		 return inspectionAmount;
@@ -36,7 +36,7 @@ public class InspectionAmount {
 	 }
 	 
 	 /**
-	  * The method to print the <code>InspectionAmount</code> object 
+	  * The method to print the <code>InspectionAmount</code> object.
 	  * 
 	  */
 	 public String toString (){
