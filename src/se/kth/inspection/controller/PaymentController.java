@@ -1,9 +1,9 @@
 package se.kth.inspection.controller;
 
 import se.kth.inspection.model.CostManager;
-import se.kth.inspection.model.CreditCardInformation;
 import se.kth.inspection.integration.Printer;
 import se.kth.inspection.util.Amount;
+import se.kth.inspection.util.CreditCardInformation;
 import se.kth.inspection.util.Receipt;
 import se.kth.inspection.integration.PaymentAuthorizationSystem;
 
