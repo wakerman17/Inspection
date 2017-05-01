@@ -12,7 +12,7 @@ import se.kth.inspection.controller.InspectionController;
 import se.kth.inspection.controller.ResultController;
 
 /**
- * No view is generated despite the name, it only shows output
+ * No view is generated despite the name, it only shows output.
  *
  */
 public class View {
@@ -36,8 +36,8 @@ public class View {
 	
 
 	public View(GarageDoorController garageDoorContr, SimultaniusDisplayAndGarageDoorController simuContr, 
-		    CostController costContr, PaymentController paymentContr, InspectionController inspectionContr,
-		    ResultController resultContr) {
+			    CostController costContr, PaymentController paymentContr, InspectionController inspectionContr,
+			    ResultController resultContr) {
 		this.garageDoorContr = garageDoorContr;
 		this.simuContr = simuContr;
 		this.costContr = costContr;
@@ -46,7 +46,7 @@ public class View {
 		this.resultContr = resultContr;
 	}
 	/**
-	 * A hardcoded execution
+	 * A hardcoded execution.
 	 * 
 	 */
 	public void sampleExecution () {
