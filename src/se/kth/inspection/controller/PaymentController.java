@@ -8,7 +8,7 @@ import se.kth.inspection.util.Receipt;
 import se.kth.inspection.integration.PaymentAuthorizationSystem;
 
 /**
- * Controller which handles the payment
+ * Controller which handles the payment.
  *
  */
 public class PaymentController {
@@ -31,13 +31,12 @@ public class PaymentController {
 	}
 	
 	/**
-	 * Handles calls to pay for the cost
+	 * Handles calls to pay for the cost.
 	 * 
-	 * @param creditCardInformation The information given about the credit card
+	 * @param creditCardInformation The information given about the credit card.
 	 */
 	public void doPayment (CreditCardInformation creditCardInformation) {
 		doPaymentPrivate(creditCardInformation);
-
 	}
 
 	
