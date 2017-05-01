@@ -10,8 +10,8 @@ import se.kth.inspection.util.Vehicle;
  */
 public class DatabaseManager {
 	
-	private Inspect[] inspect = 	new Inspect[3];
-	private Inspect[] resultOfAll = new Inspect[3];
+	private Inspect[] inspect = 		new Inspect[3];
+	private Inspect[] resultOfAll = 	new Inspect[3];
 	private int inspectionAmountPrimitive;
 	private int inspectIndex = 		-1;
 	private int resultIndex = 		0;
@@ -67,7 +67,7 @@ public class DatabaseManager {
 	
 	private Inspect whatToInspectPrivate (Vehicle vehicle) {
 		inspectIndex++;
-		inspect = 					inspectionList(vehicle);
+		inspect = 				inspectionList(vehicle);
 		return inspect[inspectIndex];
 	}
 	
