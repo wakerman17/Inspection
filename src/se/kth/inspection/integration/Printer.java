@@ -26,7 +26,7 @@ public class Printer {
 	 * 
 	 * @param result The result of the inspection.
 	 * @param vehicle Information about the vehicle.
-	 * @param databaseManager Interface to databaseManager
+	 * @param databaseManager Interface to databaseManager.
 	 */
 	public void print (Inspect[] result, Vehicle vehicle, DatabaseManager databaseManager) {
 		printPrivate(result, vehicle, databaseManager);
