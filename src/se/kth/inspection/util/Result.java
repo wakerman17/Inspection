@@ -22,9 +22,8 @@ public class Result {
 	 * 
 	 */
 	public String toString (){
-		StringBuilder inspectMaker = new StringBuilder();
-		inspectMaker.append(result);
-		return inspectMaker.toString();
+		StringBuilder resultBuilder = new StringBuilder();
+		resultBuilder.append(result);
+		return resultBuilder.toString();
 	}
-	
 }
