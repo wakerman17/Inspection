@@ -3,7 +3,7 @@ package se.kth.inspection.util;
 import se.kth.inspection.util.QueueNumber;
 
 /**
- * The number which will stand on the display
+ * The number which will stand on the display.
  *
  */
 public class QueueNumber {
@@ -15,7 +15,7 @@ public class QueueNumber {
      *
      * @param queueNumberPrimitive The amount represented by the newly created instance.
      */
-    public QueueNumber(int queueNumberPrimitive) {
+    public QueueNumber (int queueNumberPrimitive) {
 		this.queueNumberPrimitive = queueNumberPrimitive;
 	}
     /**
@@ -27,10 +27,11 @@ public class QueueNumber {
     }
 	
 	/**
-	 * The method to print the <code>InspectionAmount</code> object 
+	 * The method to print the <code>QueueNumber</code> object.
 	 * 
+	 * @return The <code>String</code> of the <code>QueueNumber</code>.
 	 */
-    public String toString (){
+    public String toString () {
 		StringBuilder queueNumberBuilder = new StringBuilder();
 		queueNumberBuilder.append(queueNumberPrimitive);
 		return queueNumberBuilder.toString();
