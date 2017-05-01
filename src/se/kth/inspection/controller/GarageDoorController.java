@@ -19,10 +19,10 @@ public class GarageDoorController {
 		this.garageDoor = garageDoor;
 	}
 	
-	 /**
-     * Creates a new instance.
-     *
-     * @param status What the status the door is going to change, open or close.
+	/**
+         * Creates a new instance.
+         *
+         * @param status What the status the door is going to change, open or close.
 	 */
 	public void activateDoor (String status) {
 		garageDoor.activateDoor(status);
