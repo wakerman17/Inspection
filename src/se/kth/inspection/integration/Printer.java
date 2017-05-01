@@ -6,7 +6,7 @@ import se.kth.inspection.util.Vehicle;
 import se.kth.inspection.integration.DatabaseManager;
 
 /**
- * Takes care of the calls to the printer
+ * Takes care of the calls to the printer.
  * 
  */
 
@@ -15,7 +15,7 @@ public class Printer {
 	/**
 	 * This method prints the receipt to <code>System.out</code> instead of the printer.
 	 * 
-	 * @param receipt Information about the payment
+	 * @param receipt Information about the payment.
 	 */
 	public void print(Receipt receipt){
 		printPrivate(receipt);
@@ -38,11 +38,14 @@ public class Printer {
 	}
 	
 	private void printPrivate (Inspect[] result, Vehicle vehicle, DatabaseManager databaseManager) {
-		int j = result.length - 1;
+		System.out.println("No more inspections! \n\nPrintout: \n");
+		
+		int inspectionAmount = result.length - 1;
 		Inspect[] inspect = databaseManager.getInspection(vehicle);
-		for(int i = 0; i <= j; i++)
-			System.out.println("The inspection with " + inspect[i] + " got the result: " + result[i]);
 		String regNo = vehicle.getVehiclePrimitive();
+		
+		for(int index = 0; index <= inspectionAmount; index++)
+			System.out.println("The inspection with " + inspect[index] + " got the result: " + result[index]);
 		System.out.println("Vechicle registration number: " + regNo);
 	}
 }
