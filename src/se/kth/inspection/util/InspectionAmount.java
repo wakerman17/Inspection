@@ -1,47 +1,38 @@
 package se.kth.inspection.util;
+
+import se.kth.inspection.util.QueueNumber;
+
 /**
- * The anmount of inspections that has to be done.
- * 
+ * The number which will stand on the display.
+ *
  */
-public class InspectionAmount {
+public class QueueNumber {
 	
-	 public final int inspectionAmountPrimitive;
-	 public InspectionAmount inspectionAmount;
-	 
-	 /**
-	  * Creates a new instance, representing the specified amount of inspections.
-	  *
-	  * @param amount The amount of inspections represented by the newly created instance.
-	  */
-	 public InspectionAmount(int primitiveInspectionAmount) {
-		 this.inspectionAmountPrimitive = primitiveInspectionAmount;
-	 }
-	 
-	 /**
-	  * Get the InsoectionAmount in an int.
-	  * 
-	  * @return The inspectionAmount in an int.
-	  */
-	 public InspectionAmount getInspectionAmount(){
-		 return inspectionAmount;
-	 }
-	 
-	 /**
-	  * Get the <code>InspectionAmount</code> in an int.
-	  * 
-	  * @return <code>InspectionAmount</code> in an int.
-	  */
-	 public int getPrimitiveInspectionAmount(){
-		 return inspectionAmountPrimitive;
-	 }
-	 
-	 /**
-	  * The method to print the <code>InspectionAmount</code> object.
-	  * 
-	  */
-	 public String toString (){
-		 StringBuilder inspectionAmountBuilder = new StringBuilder();
-		 inspectionAmountBuilder.append(inspectionAmount);
-		 return inspectionAmountBuilder.toString();
-	 }
+	public int queueNumberPrimitive;
+
+	/**
+     * Creates a new instance.
+     *
+     * @param queueNumberPrimitive The amount represented by the newly created instance.
+     */
+    public QueueNumber(int queueNumberPrimitive) {
+		this.queueNumberPrimitive = queueNumberPrimitive;
+	}
+    /**
+     * The reference to <code>QueueNumber</code> becomes 0.
+     * 
+     */
+	public QueueNumber() {
+    	this(0);
+    }
+	
+	/**
+	 * The method to print the <code>InspectionAmount</code> object.
+	 * 
+	 */
+    public String toString (){
+		StringBuilder queueNumberBuilder = new StringBuilder();
+		queueNumberBuilder.append(queueNumberPrimitive);
+		return queueNumberBuilder.toString();
+    }
 }
