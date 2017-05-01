@@ -17,9 +17,9 @@ public class Inspect {
     }
 	
 	/**
-	 * The method to print the <code>inspected</code> object.
+	 * The method to print the <code>Inspect</code> object.
 	 * 
-	 * @return The <code>String</code> of the <code>inspect</code>
+	 * @return The <code>String</code> of the <code>Inspect</code>
 	 */
 	public String toString () {
 		StringBuilder inspectBuilder = new StringBuilder();
