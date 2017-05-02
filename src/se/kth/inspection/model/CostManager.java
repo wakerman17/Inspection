@@ -4,20 +4,20 @@ import se.kth.inspection.util.Amount;
 import se.kth.inspection.util.InspectionAmount;
 
 /**
- * Takes care of calculating and giving the cost of the inspection
+ * Takes care of calculating and giving the cost of the inspection.
  *
  */
 public class CostManager {
 	
 	private int costPrimitive;
 	private int costPerPart = 200;
-	private Amount objectCost;
+	private Amount cost;
 	
 	/**
-	 * Calculates the cost to pay
+	 * Calculates the cost to pay.
 	 * 
-	 * @param inspectionAmount How many parts to inspect
-	 * @return The cost to pay
+	 * @param inspectionAmount How many parts to inspect.
+	 * @return The cost to pay.
 	 */
 	public Amount whatToPay (InspectionAmount inspectionAmount) {
 		return whatToPayprivate(inspectionAmount);
@@ -39,20 +39,23 @@ public class CostManager {
 	 * @return The latest cost.
 	 */
 	public Amount getCost () {
-		return objectCost;
+		cost = new Amount(costPrimitive);
+		return cost;
 	}
 	
 	
 	private Amount whatToPayprivate (InspectionAmount inspectionAmount) {
 		int inspectionAmountPrimitive = inspectionAmount.getPrimitiveInspectionAmount();
 		costPrimitive = inspectionAmountPrimitive * costPerPart;
-		objectCost = new Amount(costPrimitive);
-		return objectCost;
+		cost = new Amount(costPrimitive);
+		return cost;
 	}
 	
 	private Amount getLatestCostPrivate (boolean approval) {
-		if (approval == true)
-			return objectCost;
+		if (approval == true) {
+			cost = new Amount(costPrimitive);
+			return cost;
+		}
 		else
 			return null;
 	}
