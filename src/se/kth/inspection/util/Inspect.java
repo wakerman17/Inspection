@@ -16,11 +16,7 @@ public class Inspect {
         this.inspected = inspected;
     }
 	
-	/**
-	 * The method to print the <code>Inspect</code> object.
-	 * 
-	 * @return The <code>String</code> of the <code>Inspect</code>
-	 */
+	@Override
 	public String toString () {
 		return inspected;
 	}
