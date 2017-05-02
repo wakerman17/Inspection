@@ -35,14 +35,8 @@ public final class Vehicle {
 		return vehiclePrimitive;
 	}
 	
-	/**
-	 * The method to print the <code>Vehicle</code> object.
-	 * 
-	 * @return The <code>String</code> of the <code>Vehicle</code>.
-	 */
+	@Override
 	public String toString () {
-		StringBuilder vehicleBuilder = new StringBuilder();
-		vehicleBuilder.append(vehicle);
-		return vehicleBuilder.toString();
+		return vehiclePrimitive;
 	 }
 }
