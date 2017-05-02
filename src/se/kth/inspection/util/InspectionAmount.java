@@ -35,14 +35,8 @@ public class InspectionAmount {
 		 return inspectionAmountPrimitive;
 	 }
 	 
-	 /**
-	  * The method to print the <code>InspectionAmount</code> object.
-	  * 
-	  * @return The <code>String</code> of the <code>InspectionAmount</code>.
-	  */
+	 @Override
 	 public String toString () {
-		 StringBuilder inspectionAmountBuilder = new StringBuilder();
-		 inspectionAmountBuilder.append(inspectionAmount);
-		 return inspectionAmountBuilder.toString();
+		 return Integer.toString(inspectionAmountPrimitive);
 	 }
 }
