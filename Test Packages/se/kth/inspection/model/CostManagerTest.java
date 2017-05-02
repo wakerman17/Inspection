@@ -16,33 +16,31 @@ public class CostManagerTest {
 	String regNo = "ABC123";
 	Vehicle vehicle = new Vehicle(regNo);
 	InspectionAmount inspectionAmount = databaseManager.howManyInspections(vehicle);
-	Amount cost;
+
 
 	@Test
 	public void testWhatToPay () {
-		cost = costManager.whatToPay(inspectionAmount);
+		Amount cost = costManager.whatToPay(inspectionAmount);
 		Amount expected = new Amount(600);
 		assertEquals("1 The numbers isn't equal!",expected ,cost);
-		//Fail despite there is right - the objects have the same value
 	}
 	
 	@Test
 	public void testGetLatestCostTrue () {
-		cost = costManager.getLatestCost(approvalTrue);
+		Amount cost = costManager.getLatestCost(approvalTrue);
 		assertNotNull("It dosn't return the cost", cost);
 	}
 	
 	@Test
 	public void testGetLatestCostFalse () {
-		cost = costManager.getLatestCost(approvalFalse);
+		Amount cost = costManager.getLatestCost(approvalFalse);
 		assertNull("It dosn't return null", cost);
 	}
 	
 	@Test
 	public void testGetCost () {
-		cost = costManager.getCost();
-		Amount expected = new Amount(0);
-		assertEquals("2 The numbers isn't equal!",expected ,cost);
-		//Fail despite there is right - the objects have the same value
+		Amount cost = costManager.getCost();
+		Amount expResult = new Amount(0);
+		assertEquals("1 The numbers isn't equal!",expResult ,cost);
 	}
 }
