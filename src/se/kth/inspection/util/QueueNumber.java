@@ -8,15 +8,15 @@ import se.kth.inspection.util.QueueNumber;
  */
 public class QueueNumber {
 	
-	public int queueNumberPrimitive;
+	public int queueNumber;
 
 	/**
      * Creates a new instance.
      *
-     * @param queueNumberPrimitive The amount represented by the newly created instance.
+     * @param queueNumber The amount represented by the newly created instance.
      */
-    public QueueNumber (int queueNumberPrimitive) {
-		this.queueNumberPrimitive = queueNumberPrimitive;
+    public QueueNumber (int queueNumber) {
+		this.queueNumber = queueNumber;
 	}
     /**
      * The reference to <code>QueueNumber</code> becomes 0.
@@ -28,6 +28,6 @@ public class QueueNumber {
 	
 	@Override
     public String toString () {
-	return Integer.toString(queueNumberPrimitive);
+	return Integer.toString(queueNumber);
     }
 }
