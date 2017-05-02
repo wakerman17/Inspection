@@ -22,8 +22,6 @@ public class Inspect {
 	 * @return The <code>String</code> of the <code>Inspect</code>
 	 */
 	public String toString () {
-		StringBuilder inspectBuilder = new StringBuilder();
-		inspectBuilder.append(inspected);
-		return inspectBuilder.toString();
+		return inspected;
 	}
 }
