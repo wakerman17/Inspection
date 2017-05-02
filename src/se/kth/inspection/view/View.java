@@ -12,7 +12,7 @@ import se.kth.inspection.controller.InspectionController;
 import se.kth.inspection.controller.ResultController;
 
 /**
- * No view is generated despite the name, it only shows output.
+ * No view is generated despite the name, it only shows output
  *
  */
 public class View {
@@ -34,7 +34,16 @@ public class View {
 	private CreditCardInformation creditCardInformation = new CreditCardInformation(pin, number, holder, expireDate, cvc);
 	private String result;
 	
-
+	/**
+	 * Creates a new instance.
+	 * 
+	 * @param garageDoorContr The interface of garageDoorContr.
+	 * @param simuContr The interface of simuContr.
+	 * @param costContr The interface of costContr.
+	 * @param paymentContr The interface of paymentContr.
+	 * @param inspectionContr The interface of inspectionContr.
+	 * @param resultContr The interface of resultContr.
+	 */
 	public View(GarageDoorController garageDoorContr, SimultaniusDisplayAndGarageDoorController simuContr, 
 			    CostController costContr, PaymentController paymentContr, InspectionController inspectionContr,
 			    ResultController resultContr) {
@@ -45,6 +54,7 @@ public class View {
 		this.inspectionContr = inspectionContr;
 		this.resultContr = resultContr;
 	}
+	
 	/**
 	 * A hardcoded execution.
 	 * 
