@@ -28,7 +28,6 @@ public class ReceiptTest {
 				         		+ "\nHolder of vehicle: " + holder + "\n";
 		String result = instance.receiptString();
 		
-		System.out.println("expResult:\n" + expResult + "result:\n" + result);
 		assertTrue("Wrong output",result.contains(expResult));
 	}
 }
