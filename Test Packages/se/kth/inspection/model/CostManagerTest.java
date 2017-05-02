@@ -13,16 +13,16 @@ public class CostManagerTest {
 	boolean approvalFalse = false;
 	CostManager costManager = new CostManager();
 	DatabaseManager databaseManager = new DatabaseManager();
-	private String regNo = "ABC123";
+	String regNo = "ABC123";
 	Vehicle vehicle = new Vehicle(regNo);
-	private InspectionAmount inspectionAmount = databaseManager.howManyInspections(vehicle);
+	InspectionAmount inspectionAmount = databaseManager.howManyInspections(vehicle);
 	Amount cost;
 
 	@Test
 	public void testWhatToPay () {
 		cost = costManager.whatToPay(inspectionAmount);
 		Amount expected = new Amount(600);
-		assertEquals("1 The number is invalid!",expected ,cost);
+		assertEquals("1 The numbers isn't equal!",expected ,cost);
 		//Fail despite there is right - the objects have the same value
 	}
 	
@@ -42,7 +42,7 @@ public class CostManagerTest {
 	public void testGetCost () {
 		cost = costManager.getCost();
 		Amount expected = new Amount(0);
-		assertEquals("2 The number is invalid!",expected ,cost);
+		assertEquals("2 The numbers isn't equal!",expected ,cost);
 		//Fail despite there is right - the objects have the same value
 	}
 }
