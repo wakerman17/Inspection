@@ -13,11 +13,12 @@ public class QueueNumber {
 	/**
      * Creates a new instance.
      *
-     * @param queueNumber The amount represented by the newly created instance.
+     * @param queueNumberPrimitive The amount represented by the newly created instance.
      */
     public QueueNumber (int queueNumber) {
 		this.queueNumber = queueNumber;
 	}
+    
     /**
      * The reference to <code>QueueNumber</code> becomes 0.
      * 
@@ -28,6 +29,6 @@ public class QueueNumber {
 	
 	@Override
     public String toString () {
-	return Integer.toString(queueNumber);
+		return Integer.toString(queueNumber);
     }
 }
