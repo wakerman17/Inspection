@@ -55,7 +55,7 @@ public class DatabaseManager {
 	 * @return The array with all inspections
 	 */
 	public Inspect[] getInspection (Vehicle vehicle) {
-		return inspect = 			inspectionList(vehicle);
+		return inspect = 			inspectionArray(vehicle);
 	}
 	
 	
@@ -67,7 +67,7 @@ public class DatabaseManager {
 	
 	private Inspect whatToInspectPrivate (Vehicle vehicle) {
 		inspectIndex++;
-		inspect = 					inspectionList(vehicle);
+		inspect = 					inspectionArray(vehicle);
 		return inspect[inspectIndex];
 	}
 	
@@ -81,7 +81,7 @@ public class DatabaseManager {
 	}
 	
 	//Method only used by implementation
-	private Inspect[] inspectionList (Vehicle vehicle) {
+	private Inspect[] inspectionArray (Vehicle vehicle) {
 		String regNo = vehicle.getVehiclePrimitive();
 		if (regNo == "ABC123"){
 			inspect[0] = new Inspect("Breakers");
