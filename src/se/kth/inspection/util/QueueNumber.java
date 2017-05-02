@@ -26,14 +26,8 @@ public class QueueNumber {
     	this(0);
     }
 	
-	/**
-	 * The method to print the <code>QueueNumber</code> object.
-	 * 
-	 * @return The <code>String</code> of the <code>QueueNumber</code>.
-	 */
+	@Override
     public String toString () {
-		StringBuilder queueNumberBuilder = new StringBuilder();
-		queueNumberBuilder.append(queueNumberPrimitive);
-		return queueNumberBuilder.toString();
+	return Integer.toString(queueNumberPrimitive);
     }
 }
