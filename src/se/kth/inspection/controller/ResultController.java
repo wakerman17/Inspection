@@ -1,5 +1,7 @@
 package se.kth.inspection.controller;
 
+import se.kth.inspection.integration.DatabaseManager;
+import se.kth.inspection.integration.Printer;
 import se.kth.inspection.model.PrintCheck;
 import se.kth.inspection.util.Vehicle;
 
@@ -11,14 +13,20 @@ import se.kth.inspection.util.Vehicle;
 public class ResultController {
 	
 	private PrintCheck printCheck;
+	private Printer printer;
+	private DatabaseManager databaseManager;
 	
 	 /**
      * Creates a new instance.
      *
      * @param printCheck Interface to printCheck.
+     * @param printer Interface to printer.
+	 * @param databasemManager Interface to databasemManager.
      */
-	public ResultController (PrintCheck printCheck) {
+	public ResultController (PrintCheck printCheck, Printer printer, DatabaseManager databaseManager) {
 		this.printCheck = printCheck;
+		this.printer = printer;
+		this.databaseManager = databaseManager;
 	}
 	
 	/**
@@ -33,6 +41,6 @@ public class ResultController {
 	
 	
 	private void saveResultPrivate (String result, Vehicle vehicle) {
-		printCheck.saveResult (result, vehicle);
+		printCheck.saveResult (result, vehicle, printer, databaseManager);
 	}
 }
