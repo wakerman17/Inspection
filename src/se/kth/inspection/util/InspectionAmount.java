@@ -18,16 +18,16 @@ public class InspectionAmount {
 	 }
 	 
 	 /**
-	  * Get the InsoectionAmount in an int.
+	  * Get the <code>InspectionAmount</code.
 	  * 
-	  * @return The inspectionAmount in an int.
+	  * @return The <code>InspectionAmount</code in an object.
 	  */
 	 public InspectionAmount getInspectionAmount () {
 		 return inspectionAmount;
 	 }
 	 
 	 /**
-	  * Get the <code>InspectionAmount</code> in an int.
+	  * Get the <code>InspectionAmount</code>.
 	  * 
 	  * @return <code>InspectionAmount</code> in an int.
 	  */
