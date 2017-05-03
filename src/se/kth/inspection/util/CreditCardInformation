@@ -11,7 +11,16 @@ public class CreditCardInformation {
 	private final String holder;
 	private final String expireDate;
 	private final int cvc;
-
+	
+	/**
+	 * The credit card information the customer gives
+	 * 
+	 * @param pin The code to the card
+	 * @param number The number to the card
+	 * @param holder The one who owns the card
+	 * @param expireDate The expire date to the card
+	 * @param cvc The cvc to the card
+	 */
 	public CreditCardInformation (int pin, int number, String holder, String expireDate, int cvc) {
 		this.pin = 			pin;
 		this.number = 		number;
