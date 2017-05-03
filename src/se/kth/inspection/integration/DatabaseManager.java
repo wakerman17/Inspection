@@ -12,7 +12,7 @@ import se.kth.inspection.util.Result;
 public class DatabaseManager {
 	
 	private Inspect[] inspect = 	new Inspect[3];
-	private Result[] resultOfAll = 	new Result[3];
+	private Result[] results = 		new Result[3];
 	private int inspectionAmountPrimitive;
 	private int inspectIndex = 		-1;
 	private int resultIndex = 		0;
@@ -67,15 +67,15 @@ public class DatabaseManager {
 	
 	private Inspect whatToInspectPrivate (Vehicle vehicle) {
 		inspectIndex++;
-		inspect = 					inspectionArray(vehicle);
+		inspect = 		inspectionArray(vehicle);
 		return inspect[inspectIndex];
 	}
 	
 	private Result[] saveResultPrivate (String result, Vehicle vehicle) {
-		resultOfAll[resultIndex] = new Result(result);
+		results[resultIndex] = new Result(result);
 		resultIndex++;
 		if (resultIndex >= inspect.length){
-			return resultOfAll;
+			return results;
 		}
 		return null;
 	}
