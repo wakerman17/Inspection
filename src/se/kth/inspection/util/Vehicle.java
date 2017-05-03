@@ -6,13 +6,13 @@ package se.kth.inspection.util;
  */
 public final class Vehicle {
 	
-	public final String vehiclePrimitive;
-	public Vehicle vehicle;
+	private final String vehiclePrimitive;
+	private Vehicle vehicle;
 	
     /**
      * Creates a new instance.
      *
-     * @param vehiclePrimitive.
+     * @param vehiclePrimitive The information about the vehicle
      */
 	public Vehicle (String vehiclePrimitive) {
 		this.vehiclePrimitive = vehiclePrimitive;
