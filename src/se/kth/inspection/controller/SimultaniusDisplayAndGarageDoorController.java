@@ -3,6 +3,7 @@ package se.kth.inspection.controller;
 import se.kth.inspection.integration.GarageDoor;
 import se.kth.inspection.integration.Display;
 import se.kth.inspection.model.DisplayNext;
+import se.kth.inspection.util.QueueNumber;
 
 /**
  * Controller which takes care of the display and garage door for a new inspection.
@@ -13,18 +14,21 @@ public class SimultaniusDisplayAndGarageDoorController {
 	private GarageDoor garageDoor;
 	private DisplayNext displayNext;
 	private Display display;
+	private QueueNumber queueNumber;
 
-	 /**
-     * Creates a new instance.
-     *
-     * @param garageDoor Interface to garageDoor.
-     * @param displayNext Interface to displayNext.
-     * @param display Interface to display.
-     */
-	public SimultaniusDisplayAndGarageDoorController (GarageDoor garageDoor, DisplayNext displayNext, Display display) {
+       /**
+        * Creates a new instance.
+        *
+        * @param garageDoor Interface to garageDoor.
+        * @param displayNext Interface to displayNext.
+        * @param display Interface to display.
+	* @param queueNumber Interface to queueNumber.
+        */
+	public SimultaniusDisplayAndGarageDoorController (GarageDoor garageDoor, DisplayNext displayNext, Display display, QueueNumber queueNumber) {
 		this.garageDoor = garageDoor;
 		this.displayNext = displayNext;
 		this.display = display;
+		this.queueNumber = queueNumber;
 	}
 	
 	/**
@@ -37,7 +41,7 @@ public class SimultaniusDisplayAndGarageDoorController {
 	
 	
 	private void newInspectionPrivate () {
-		displayNext.increaseQueueNumber(display);
+		displayNext.increaseQueueNumber(display, queueNumber);
 		garageDoor.activateDoor("open");
 	}
 }
