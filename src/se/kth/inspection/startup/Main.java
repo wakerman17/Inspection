@@ -25,22 +25,25 @@ import se.kth.inspection.view.View;
 public class Main {
 	public static void main (String[] args) {
 		GarageDoor garageDoor = 				new GarageDoor();
+		GarageDoorController garageDoorContr = 			new GarageDoorController(garageDoor);
+		
 		DisplayNext displayNext = 				new DisplayNext();
 		Display display = 					new Display();
 		QueueNumber queueNumber = 				new QueueNumber();
-		new DisplayNext(queueNumber, display);
-		SimultaniusDisplayAndGarageDoorController simuContr = new SimultaniusDisplayAndGarageDoorController(garageDoor, displayNext, display);
-		GarageDoorController garageDoorContr = 			new GarageDoorController(garageDoor);
-		DatabaseManager databasemManager = 			new DatabaseManager();
+		SimultaniusDisplayAndGarageDoorController simuContr = 	new SimultaniusDisplayAndGarageDoorController(garageDoor, displayNext, display, queueNumber);
+		
+		DatabaseManager databaseManager = 			new DatabaseManager();
 		CostManager costManager = 				new CostManager();
-		CostController costContr = 				new CostController(databasemManager, costManager);
+		CostController costContr = 				new CostController(databaseManager, costManager);
+		
 		PaymentAuthorizationSystem paymentAuthorizationSystem = new PaymentAuthorizationSystem();
 		Printer printer = 					new Printer();
 		PaymentController paymentContr = 			new PaymentController(paymentAuthorizationSystem, costManager, printer);
-		InspectionController inspectionContr = 			new InspectionController(databasemManager);
+		InspectionController inspectionContr = 			new InspectionController(databaseManager);
+		
 		PrintCheck printCheck = 				new PrintCheck();
-		ResultController resultContr = 				new ResultController(printCheck);
-		new PrintCheck (printer, databasemManager);
+		ResultController resultContr = 				new ResultController(printCheck, printer, databaseManager);
+		
 		new View(garageDoorContr, simuContr, costContr, paymentContr, inspectionContr, resultContr).sampleExecution();
 	}
 }
