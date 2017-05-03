@@ -3,6 +3,7 @@ package se.kth.inspection.integration;
 import se.kth.inspection.util.Inspect;
 import se.kth.inspection.util.InspectionAmount;
 import se.kth.inspection.util.Vehicle;
+import se.kth.inspection.util.Result;
 
 /**
  * Handles all calls to the database.
@@ -11,11 +12,11 @@ import se.kth.inspection.util.Vehicle;
 public class DatabaseManager {
 	
 	private Inspect[] inspect = 	new Inspect[3];
-	private Inspect[] resultOfAll = new Inspect[3];
+	private Result[] resultOfAll = 	new Result[3];
 	private int inspectionAmountPrimitive;
 	private int inspectIndex = 		-1;
 	private int resultIndex = 		0;
-	private InspectionAmount inspectionAmount;
+	//private InspectionAmount inspectionAmount;
 	
 	/**
 	 * Calculates the amount of inspections.
@@ -44,7 +45,7 @@ public class DatabaseManager {
 	 * @param vehicle Information about the vehicle.
 	 * @return The array with all of the results if the last inspection are made. Otherwise null.
 	 */
-	public Inspect[] saveResult (String result, Vehicle vehicle) {
+	public Result[] saveResult (String result, Vehicle vehicle) {
 		return saveResultPrivate(result, vehicle);
 	}
 	
@@ -55,14 +56,13 @@ public class DatabaseManager {
 	 * @return The array with all inspections
 	 */
 	public Inspect[] getInspection (Vehicle vehicle) {
-		return inspect = 			inspectionArray(vehicle);
+		return inspectionArray(vehicle);
 	}
 	
 	
 	private InspectionAmount howManyInspectionsPrivate (Vehicle vehicle) {
 		inspectionAmountPrimitive = inspect.length;
-		inspectionAmount = 			new InspectionAmount(inspectionAmountPrimitive);
-		return inspectionAmount;
+		return new InspectionAmount(inspectionAmountPrimitive);
 	}
 	
 	private Inspect whatToInspectPrivate (Vehicle vehicle) {
@@ -71,8 +71,8 @@ public class DatabaseManager {
 		return inspect[inspectIndex];
 	}
 	
-	private Inspect[] saveResultPrivate (String result, Vehicle vehicle) {
-		resultOfAll[resultIndex] = new Inspect(result);
+	private Result[] saveResultPrivate (String result, Vehicle vehicle) {
+		resultOfAll[resultIndex] = new Result(result);
 		resultIndex++;
 		if (resultIndex >= inspect.length){
 			return resultOfAll;
