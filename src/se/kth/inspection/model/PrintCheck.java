@@ -2,7 +2,7 @@ package se.kth.inspection.model;
 
 import se.kth.inspection.integration.DatabaseManager;
 import se.kth.inspection.integration.Printer;
-import se.kth.inspection.util.Inspect;
+import se.kth.inspection.util.Result;
 import se.kth.inspection.util.Vehicle;
 
 /**
@@ -25,7 +25,7 @@ public class PrintCheck {
 	
 	
 	private void saveResultPrivate (String result, Vehicle vehicle, Printer printer, DatabaseManager databaseManager) {
-		Inspect[] i = databaseManager.saveResult(result, vehicle);
+		Result[] i = databaseManager.saveResult(result, vehicle);
 		if (i != null)
 			printer.print(i, vehicle, databaseManager);
 	}
