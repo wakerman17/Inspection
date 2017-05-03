@@ -84,10 +84,12 @@ public class View {
 		toInspect = inspectionContr.whatToInspect(vehicle);
 		System.out.println("You shold inspect: " + toInspect);
 		
+		result = "fail";
 		resultContr.saveResult(result, vehicle);
 		toInspect = inspectionContr.whatToInspect(vehicle);
 		System.out.println("You shold inspect: " + toInspect);
 		
+		result = "pass";
 		resultContr.saveResult(result, vehicle);
 		System.out.println();
 		status = "open";
