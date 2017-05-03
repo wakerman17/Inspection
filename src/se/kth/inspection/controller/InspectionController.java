@@ -32,7 +32,6 @@ public class InspectionController {
 	}
 	
 	private Inspect whatToInspectPrivate (Vehicle vehicle) {
-		Inspect toInspect = databaseManager.whatToInspect(vehicle);
-		return toInspect;
+		return databaseManager.whatToInspect(vehicle);
 	}
 }
