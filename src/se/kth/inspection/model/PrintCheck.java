@@ -11,37 +11,20 @@ import se.kth.inspection.util.Vehicle;
  */
 public class PrintCheck {
 	
-	private Printer printer = new Printer();
-	private DatabaseManager databaseManager = new DatabaseManager();
-	
-	/**
-	 * Creates a new instance.
-	 * 
-	 * @param printer Interface to printer.
-	 * @param databaseManager Interface to databaseManager.
-	 */
-	public PrintCheck (Printer printer, DatabaseManager databaseManager) {
-		this.printer = printer;
-		this.databaseManager = databaseManager;
-	}
-	/**
-	 * Creates a new instance.
-	 * 
-	 */
-	public PrintCheck () {}
-	
 	/**
 	 * Save the result of the inspection, if all inspections are made call the printer.
 	 * 
 	 * @param result The result of the inspection.
 	 * @param vehicle Information about the vehicle.
+	 * @param printer Interface to printer.
+	 * @param databaseManager Interface to databasemManager.
 	 */
-	public void saveResult (String result, Vehicle vehicle) {
-		saveResultPrivate(result, vehicle);
+	public void saveResult (String result, Vehicle vehicle, Printer printer, DatabaseManager databaseManager) {
+		saveResultPrivate(result, vehicle, printer, databaseManager);
 	}
 	
 	
-	private void saveResultPrivate (String result, Vehicle vehicle) {
+	private void saveResultPrivate (String result, Vehicle vehicle, Printer printer, DatabaseManager databaseManager) {
 		Inspect[] i = databaseManager.saveResult(result, vehicle);
 		if (i != null)
 			printer.print(i, vehicle, databaseManager);
