@@ -11,6 +11,8 @@ import se.kth.inspection.util.Vehicle;
  */
 public class PrintCheck {
 	
+	private Result[] results;
+	
 	/**
 	 * Save the result of the inspection, if all inspections are made call the printer.
 	 * 
@@ -25,8 +27,8 @@ public class PrintCheck {
 	
 	
 	private void saveResultPrivate (String result, Vehicle vehicle, Printer printer, DatabaseManager databaseManager) {
-		Result[] i = databaseManager.saveResult(result, vehicle);
-		if (i != null)
-			printer.print(i, vehicle, databaseManager);
+		results = databaseManager.saveResult(result, vehicle);
+		if (results != null)
+			printer.print(results, vehicle, databaseManager);
 	}
 }
