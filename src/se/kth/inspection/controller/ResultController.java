@@ -16,13 +16,13 @@ public class ResultController {
 	private Printer printer;
 	private DatabaseManager databaseManager;
 	
-	 /**
-     * Creates a new instance.
-     *
-     * @param printCheck Interface to printCheck.
-     * @param printer Interface to printer.
+        /**
+         * Creates a new instance.
+         *
+         * @param printCheck Interface to printCheck.
+         * @param printer Interface to printer.
 	 * @param databasemManager Interface to databasemManager.
-     */
+         */
 	public ResultController (PrintCheck printCheck, Printer printer, DatabaseManager databaseManager) {
 		this.printCheck = printCheck;
 		this.printer = printer;
