@@ -3,7 +3,9 @@ package se.kth.inspection.integration;
 import se.kth.inspection.util.Inspect;
 import se.kth.inspection.util.Receipt;
 import se.kth.inspection.util.Vehicle;
+import se.kth.inspection.util.Result;
 import se.kth.inspection.integration.DatabaseManager;
+
 
 /**
  * Takes care of the calls to the printer.
@@ -28,7 +30,7 @@ public class Printer {
 	 * @param vehicle Information about the vehicle.
 	 * @param databaseManager Interface to databaseManager.
 	 */
-	public void print (Inspect[] result, Vehicle vehicle, DatabaseManager databaseManager) {
+	public void print (Result[] result, Vehicle vehicle, DatabaseManager databaseManager) {
 		printPrivate(result, vehicle, databaseManager);
 	}
 	
@@ -37,7 +39,7 @@ public class Printer {
 		System.out.println(receipt.receiptString());
 	}
 	
-	private void printPrivate (Inspect[] result, Vehicle vehicle, DatabaseManager databaseManager) {
+	private void printPrivate (Result[] result, Vehicle vehicle, DatabaseManager databaseManager) {
 		System.out.println("No more inspections! \n\nPrintout: \n");
 		
 		int inspectionAmount = result.length - 1;
