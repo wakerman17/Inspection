@@ -27,8 +27,14 @@ public class PrintCheck {
 	
 	
 	private void saveResultPrivate (String result, Vehicle vehicle, Printer printer, DatabaseManager databaseManager) {
+		if (result != "pass" || result != "fail") {
+			System.out.println("You have to choose either pass or fail");
+			return;
+		}
+		else {
 		results = databaseManager.saveResult(result, vehicle);
 		if (results != null)
 			printer.print(results, vehicle, databaseManager);
+		}
 	}
 }
