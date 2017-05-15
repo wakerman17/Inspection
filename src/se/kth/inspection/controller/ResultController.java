@@ -2,9 +2,9 @@ package se.kth.inspection.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import se.kth.inspection.integration.Vehicle;
 import se.kth.inspection.integration.DatabaseManager;
 import se.kth.inspection.integration.Printer;
-import se.kth.inspection.integration.Vehicle;
 import se.kth.inspection.model.PrintCheck;
 import se.kth.inspection.model.ResultObserver;
 
