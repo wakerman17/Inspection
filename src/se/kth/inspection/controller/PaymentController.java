@@ -36,11 +36,6 @@ public class PaymentController {
 	 * @param creditCardInformation The information given about the credit card.
 	 */
 	public void doPayment (CreditCardInformation creditCardInformation) {
-		doPaymentPrivate(creditCardInformation);
-	}
-
-	
-	private void doPaymentPrivate (CreditCardInformation creditCardInformation) {
 		boolean approval = paymentAuthorizationSystem.cardRequest(creditCardInformation);
 		Amount cost = costManager.getLatestCost(approval);
 		Receipt receipt = new Receipt(cost, costManager, creditCardInformation);
