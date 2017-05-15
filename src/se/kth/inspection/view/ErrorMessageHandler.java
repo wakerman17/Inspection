@@ -17,4 +17,4 @@ class ErrorMessageHandler {
 		errorMsgBuilder.append("\n");
 		System.out.println(errorMsgBuilder);
 	}
-}
+} 
