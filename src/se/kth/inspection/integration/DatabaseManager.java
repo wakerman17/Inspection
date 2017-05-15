@@ -24,8 +24,11 @@ public class DatabaseManager {
 	public InspectionAmount howManyInspections (Vehicle vehicle) throws InvalidRegistrationNumberException {
 		String regNo = vehicle.getVehiclePrimitive();
 		if (regNo != "ABC123") 
+			inspectionAmountPrimitive = 0;
+		else 
+			inspectionAmountPrimitive = inspect.length;
+		if (inspectionAmountPrimitive == 0)
 			throw new InvalidRegistrationNumberException(vehicle);
-		inspectionAmountPrimitive = inspect.length;
 		return new InspectionAmount(inspectionAmountPrimitive);
 	}
 	
