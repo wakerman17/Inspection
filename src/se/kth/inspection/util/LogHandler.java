@@ -28,4 +28,4 @@ public class LogHandler {
 		logFile.println(logMsgBuilder);
 		exception.printStackTrace(logFile);
 	}
-}
+} 
