@@ -24,24 +24,24 @@ import java.io.IOException;
  */
 public class Main {
 	public static void main (String[] args) throws IOException {
-		GarageDoor garageDoor = 							new GarageDoor();
+		GarageDoor garageDoor = 					new GarageDoor();
 		GarageDoorController garageDoorContr = 				new GarageDoorController(garageDoor);
 		
-		DisplayNext displayNext = 							new DisplayNext();
-		Display display = 									new Display();
+		DisplayNext displayNext = 					new DisplayNext();
+		Display display = 						new Display();
 		SimultaniusDisplayAndGarageDoorController simuContr = new SimultaniusDisplayAndGarageDoorController(garageDoor, displayNext, display);
 		
-		DatabaseManager databaseManager = 					new DatabaseManager();
-		CostManager costManager = 							new CostManager();
-		CostController costContr = 							new CostController(databaseManager, costManager);
+		DatabaseManager databaseManager = 				new DatabaseManager();
+		CostManager costManager = 					new CostManager();
+		CostController costContr = 					new CostController(databaseManager, costManager);
 		
 		PaymentAuthorizationSystem paymentAuthorizationSystem = new PaymentAuthorizationSystem();
-		Printer printer = 									new Printer();
-		PaymentController paymentContr = 					new PaymentController(paymentAuthorizationSystem, costManager, printer);
+		Printer printer = 						new Printer();
+		PaymentController paymentContr = 				new PaymentController(paymentAuthorizationSystem, costManager, printer);
 		InspectionController inspectionContr = 				new InspectionController(databaseManager);
 		
-		PrintCheck printCheck = 							new PrintCheck();
-		ResultController resultContr = 						new ResultController(printCheck, printer, databaseManager);
+		PrintCheck printCheck = 					new PrintCheck();
+		ResultController resultContr = 					new ResultController(printCheck, printer, databaseManager);
 		
 		new View(garageDoorContr, simuContr, costContr, paymentContr, inspectionContr, resultContr).sampleExecution();
 	}
