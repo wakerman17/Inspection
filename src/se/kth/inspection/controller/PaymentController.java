@@ -18,12 +18,12 @@ public class PaymentController {
 	private Printer printer;
 	
 	/**
-     * Creates a new instance.
-     *
-     * @param costManager Interface to costManager.
-     * @param printer Interface to printer.
-     * @param paymentAuthorizationSystem Interface to paymentAuthorizationSystem.
-     */
+	 * Creates a new instance.
+	 *
+	 * @param costManager Interface to costManager.
+	 * @param printer Interface to printer.
+	 * @param paymentAuthorizationSystem Interface to paymentAuthorizationSystem.
+	 */
 	public PaymentController (PaymentAuthorizationSystem paymentAuthorizationSystem, CostManager costManager, Printer printer) {
 		this.costManager = costManager;
 		this.printer = printer;
