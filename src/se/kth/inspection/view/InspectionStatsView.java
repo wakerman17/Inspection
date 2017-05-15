@@ -1,4 +1,4 @@
-package se.kth.inspection.view;
+package se.kth.inspection.view; 
 
 import se.kth.inspection.model.ResultObserver;
 
