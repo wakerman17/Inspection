@@ -14,8 +14,8 @@ import se.kth.inspection.controller.PaymentController;
 import se.kth.inspection.controller.InspectionController;
 import se.kth.inspection.controller.ResultController;
 import se.kth.inspection.model.PrintCheck;
-import se.kth.inspection.util.QueueNumber;
 import se.kth.inspection.view.View;
+import java.io.IOException;
 
 /**
  * The startup which make the references to all needed objects
@@ -23,26 +23,25 @@ import se.kth.inspection.view.View;
  * @param args Has to bee in main
  */
 public class Main {
-	public static void main (String[] args) {
-		GarageDoor garageDoor = 				new GarageDoor();
-		GarageDoorController garageDoorContr = 			new GarageDoorController(garageDoor);
+	public static void main (String[] args) throws IOException {
+		GarageDoor garageDoor = 							new GarageDoor();
+		GarageDoorController garageDoorContr = 				new GarageDoorController(garageDoor);
 		
-		DisplayNext displayNext = 				new DisplayNext();
-		Display display = 					new Display();
-		QueueNumber queueNumber = 				new QueueNumber();
-		SimultaniusDisplayAndGarageDoorController simuContr = 	new SimultaniusDisplayAndGarageDoorController(garageDoor, displayNext, display, queueNumber);
+		DisplayNext displayNext = 							new DisplayNext();
+		Display display = 									new Display();
+		SimultaniusDisplayAndGarageDoorController simuContr = new SimultaniusDisplayAndGarageDoorController(garageDoor, displayNext, display);
 		
-		DatabaseManager databaseManager = 			new DatabaseManager();
-		CostManager costManager = 				new CostManager();
-		CostController costContr = 				new CostController(databaseManager, costManager);
+		DatabaseManager databaseManager = 					new DatabaseManager();
+		CostManager costManager = 							new CostManager();
+		CostController costContr = 							new CostController(databaseManager, costManager);
 		
 		PaymentAuthorizationSystem paymentAuthorizationSystem = new PaymentAuthorizationSystem();
-		Printer printer = 					new Printer();
-		PaymentController paymentContr = 			new PaymentController(paymentAuthorizationSystem, costManager, printer);
-		InspectionController inspectionContr = 			new InspectionController(databaseManager);
+		Printer printer = 									new Printer();
+		PaymentController paymentContr = 					new PaymentController(paymentAuthorizationSystem, costManager, printer);
+		InspectionController inspectionContr = 				new InspectionController(databaseManager);
 		
-		PrintCheck printCheck = 				new PrintCheck();
-		ResultController resultContr = 				new ResultController(printCheck, printer, databaseManager);
+		PrintCheck printCheck = 							new PrintCheck();
+		ResultController resultContr = 						new ResultController(printCheck, printer, databaseManager);
 		
 		new View(garageDoorContr, simuContr, costContr, paymentContr, inspectionContr, resultContr).sampleExecution();
 	}
