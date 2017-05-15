@@ -39,4 +39,4 @@ public class CostController {
 		inspectionAmount = databaseManager.howManyInspections(vehicle);
 		return costManager.whatToPay(inspectionAmount);
 	}
-}
+} 
