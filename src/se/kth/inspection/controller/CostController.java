@@ -33,6 +33,7 @@ public class CostController {
 	 *
 	 * @param vehicle Information about the vehicle.
 	 * @return Cost of the inspection
+	 * @throws InvalidRegistrationNumberException if the registration number is invalid.
 	 */
 	public Amount whatToPay (Vehicle vehicle) throws InvalidRegistrationNumberException {
 		inspectionAmount = databaseManager.howManyInspections(vehicle);
