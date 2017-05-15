@@ -1,6 +1,6 @@
 package se.kth.inspection.integration;
 
-import se.kth.inspection.util.CreditCardInformation;
+import se.kth.inspection.model.CreditCardInformation;
 
 /**
  * A system which tell if it's ok to use the credit car to pay.
