@@ -8,11 +8,11 @@ import se.kth.inspection.integration.Vehicle;
 import se.kth.inspection.model.Amount;
 import se.kth.inspection.model.CreditCardInformation;
 import se.kth.inspection.util.LogHandler;
+import se.kth.inspection.view.ErrorMessageHandler;
 import se.kth.inspection.controller.CostController;
 import se.kth.inspection.controller.PaymentController;
 import se.kth.inspection.controller.InspectionController;
 import se.kth.inspection.controller.ResultController;
-import se.kth.inspection.view.ErrorMessageHandler;
 import java.io.IOException;
 
 /**
