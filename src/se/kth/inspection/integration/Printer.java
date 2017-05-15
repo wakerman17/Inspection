@@ -1,10 +1,7 @@
 package se.kth.inspection.integration;
 
-import se.kth.inspection.util.Inspect;
-import se.kth.inspection.util.Receipt;
-import se.kth.inspection.util.Vehicle;
-import se.kth.inspection.util.Result;
 import se.kth.inspection.integration.DatabaseManager;
+import se.kth.inspection.model.Receipt;
 
 
 /**
@@ -20,7 +17,7 @@ public class Printer {
 	 * @param receipt Information about the payment.
 	 */
 	public void print(Receipt receipt){
-		printPrivate(receipt);
+		System.out.println(receipt.receiptString());
 	}
 	
 	/**
@@ -29,14 +26,10 @@ public class Printer {
 	 * @param result The result of the inspection.
 	 * @param vehicle Information about the vehicle.
 	 * @param databaseManager Interface to databaseManager.
+	 * @throws InvalidRegistrationNumberException 
 	 */
 	public void print (Result[] result, Vehicle vehicle, DatabaseManager databaseManager) {
 		printPrivate(result, vehicle, databaseManager);
-	}
-	
-	
-	private void printPrivate (Receipt receipt) {
-		System.out.println(receipt.receiptString());
 	}
 	
 	private void printPrivate (Result[] result, Vehicle vehicle, DatabaseManager databaseManager) {
