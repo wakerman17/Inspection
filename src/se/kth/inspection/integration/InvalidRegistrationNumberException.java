@@ -1,4 +1,4 @@
-package se.kth.inspection.integration;
+package se.kth.inspection.integration; 
 
 public class InvalidRegistrationNumberException extends Exception {
 	
