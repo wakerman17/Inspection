@@ -2,14 +2,18 @@ package se.kth.inspection.view;
 
 import se.kth.inspection.controller.GarageDoorController;
 import se.kth.inspection.controller.SimultaniusDisplayAndGarageDoorController;
-import se.kth.inspection.util.Amount;
-import se.kth.inspection.util.CreditCardInformation;
-import se.kth.inspection.util.Inspect;
-import se.kth.inspection.util.Vehicle;
+import se.kth.inspection.integration.Inspect;
+import se.kth.inspection.integration.InvalidRegistrationNumberException;
+import se.kth.inspection.integration.Vehicle;
+import se.kth.inspection.model.Amount;
+import se.kth.inspection.model.CreditCardInformation;
+import se.kth.inspection.util.LogHandler;
 import se.kth.inspection.controller.CostController;
 import se.kth.inspection.controller.PaymentController;
 import se.kth.inspection.controller.InspectionController;
 import se.kth.inspection.controller.ResultController;
+import se.kth.inspection.view.ErrorMessageHandler;
+import java.io.IOException;
 
 /**
  * No view is generated despite the name, it only shows output
@@ -24,7 +28,9 @@ public class View {
 	private InspectionController inspectionContr;
 	private ResultController resultContr;
 	private String status;
-	private String regNo = "ABC123";
+	private LogHandler logger;
+	private String regNoWrong = "ABC125";
+	private String regNoRight = "ABC123";
 	private Amount cost = new Amount(0);
 	private int pin = 1234;
 	private int number = 5678;
@@ -33,6 +39,7 @@ public class View {
 	private int cvc = 123;
 	private CreditCardInformation creditCardInformation = new CreditCardInformation(pin, number, holder, expireDate, cvc);
 	private String result;
+	private ErrorMessageHandler errorMessageHandler = new ErrorMessageHandler();
 	
 	/**
 	 * Creates a new instance.
@@ -46,13 +53,17 @@ public class View {
 	 */
 	public View(GarageDoorController garageDoorContr, SimultaniusDisplayAndGarageDoorController simuContr, 
 			    CostController costContr, PaymentController paymentContr, InspectionController inspectionContr,
-			    ResultController resultContr) {
+			    ResultController resultContr) throws IOException {
 		this.garageDoorContr = garageDoorContr;
 		this.simuContr = simuContr;
 		this.costContr = costContr;
 		this.paymentContr = paymentContr;
 		this.inspectionContr = inspectionContr;
 		this.resultContr = resultContr;
+		
+		this.logger = new LogHandler();
+		
+		resultContr.addResultObserver(new InspectionStatsView());
 	}
 	
 	/**
@@ -67,31 +78,50 @@ public class View {
 		System.out.println("Door closes");
 		garageDoorContr.activateDoor(status);
 		
-		Vehicle vehicle = new Vehicle(regNo);
-		System.out.println("Customer: What is your registration number? \n" + regNo);
-		cost = costContr.whatToPay(vehicle);
+		Vehicle vehicleWrong = new Vehicle(regNoWrong);
+		System.out.println("Customer: What is your registration number? \n" + vehicleWrong);
+		
+		try {
+			cost = costContr.whatToPay(vehicleWrong);
+		} catch (InvalidRegistrationNumberException e) {
+			errorExecution("Correctly failed. The registration number " +  vehicleWrong + " is invalid.", e);
+		}
+		
+		Vehicle vehicleRight = new Vehicle(regNoRight);
+		System.out.println("Customer: What is your registration number? \n" + vehicleRight);
+		
+		try {
+			cost = costContr.whatToPay(vehicleRight);
+		} catch (InvalidRegistrationNumberException e) {
+			errorExecution("Failed wrong. The registration number " +  vehicleRight + " is valid.", e);
+		}
+
 		System.out.println("The cost is " + cost);
 		System.out.println("Customer: Print your creditCardInformation");
 		System.out.println(creditCardInformation);
 		System.out.println("Payment process is starting");
 		paymentContr.doPayment(creditCardInformation);
 		
-		Inspect toInspect = inspectionContr.whatToInspect(vehicle); 
+		Inspect toInspect = inspectionContr.whatToInspect(vehicleRight); 
 		System.out.println("Inspector: \nYou shold inspect: " + toInspect);
 		
 		result = "pass";
-		resultContr.saveResult(result, vehicle);
-		toInspect = inspectionContr.whatToInspect(vehicle);
+		System.out.println("The inspection did: " + result);
+		resultContr.saveResultFirst(result, vehicleRight);
+		toInspect = inspectionContr.whatToInspect(vehicleRight);
 		System.out.println("You shold inspect: " + toInspect);
 		
 		result = "fail";
-		resultContr.saveResult(result, vehicle);
-		toInspect = inspectionContr.whatToInspect(vehicle);
+		System.out.println("The inspection did: " + result);
+		resultContr.saveResult(result, vehicleRight);
+		toInspect = inspectionContr.whatToInspect(vehicleRight);
 		System.out.println("You shold inspect: " + toInspect);
 		
 		result = "pass";
-		resultContr.saveResult(result, vehicle);
+		System.out.println("The inspection did: " + result);
+		resultContr.saveResult(result, vehicleRight);
 		System.out.println();
+		
 		status = "open";
 		System.out.println("Door opens");
 		garageDoorContr.activateDoor(status);
@@ -99,8 +129,10 @@ public class View {
 		System.out.println("Door closes");
 		garageDoorContr.activateDoor(status);
 		
-		System.out.println("\nNew inspection is made - new queue number and open door");
-		simuContr.newInspection();
-		System.out.println("...");
+	}
+	
+	private void errorExecution(String msg, Exception e){
+		errorMessageHandler.showErrorMsg(msg);
+		logger.logException(e);
 	}
 }
