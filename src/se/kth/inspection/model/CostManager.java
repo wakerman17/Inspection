@@ -1,7 +1,6 @@
 package se.kth.inspection.model;
 
-import se.kth.inspection.util.Amount;
-import se.kth.inspection.util.InspectionAmount;
+import se.kth.inspection.integration.InspectionAmount;
 
 /**
  * Takes care of calculating and giving the cost of the inspection.
@@ -20,7 +19,7 @@ public class CostManager {
 	 * @return The cost to pay.
 	 */
 	public Amount whatToPay (InspectionAmount inspectionAmount) {
-		return whatToPayprivate(inspectionAmount);
+		return whatToPayPrivate(inspectionAmount);
 	}
 	
 	/**
@@ -44,11 +43,11 @@ public class CostManager {
 	}
 	
 	
-	private Amount whatToPayprivate (InspectionAmount inspectionAmount) {
-		int inspectionAmountPrimitive = inspectionAmount.getPrimitiveInspectionAmount();
-		costPrimitive = inspectionAmountPrimitive * costPerPart;
-		cost = new Amount(costPrimitive);
-		return cost;
+	private Amount whatToPayPrivate (InspectionAmount inspectionAmount) {
+			int inspectionAmountPrimitive = inspectionAmount.getPrimitiveInspectionAmount();
+			costPrimitive = inspectionAmountPrimitive * costPerPart;
+			cost = new Amount(costPrimitive);
+			return cost;
 	}
 	
 	private Amount getLatestCostPrivate (boolean approval) {
