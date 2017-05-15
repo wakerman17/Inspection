@@ -8,6 +8,7 @@ import java.io.PrintWriter;
  * This class is responsible for the log.
  */
 public class LogHandler {
+	
 	private static final String LOG_FILE_NAME = "inspection-log.txt";
 	private PrintWriter logFile;
 	
