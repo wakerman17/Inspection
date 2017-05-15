@@ -1,9 +1,11 @@
 package se.kth.inspection.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import se.kth.inspection.integration.DatabaseManager;
 import se.kth.inspection.integration.Printer;
-import se.kth.inspection.util.Result;
-import se.kth.inspection.util.Vehicle;
+import se.kth.inspection.integration.Result;
+import se.kth.inspection.integration.Vehicle;
 
 /**
  * Checks if the printer should print the results or save results.
@@ -11,7 +13,10 @@ import se.kth.inspection.util.Vehicle;
  */
 public class PrintCheck {
 	
+	private List<ResultObserver> resultObservers = new ArrayList<>();
 	private Result[] results;
+	int index = 0;
+	int amountOfTimesInside = 0;
 	
 	/**
 	 * Save the result of the inspection, if all inspections are made call the printer.
@@ -27,14 +32,42 @@ public class PrintCheck {
 	
 	
 	private void saveResultPrivate (String result, Vehicle vehicle, Printer printer, DatabaseManager databaseManager) {
-		if (result != "pass" || result != "fail") {
+		if (result.equals ("pass") || result.equals ("fail")) {
+			results = databaseManager.saveResult(result);
+			notifyObservers(result);
+			if (results != null)
+				printer.print(results, vehicle, databaseManager);
+			}
+		
+		else {
 			System.out.println("You have to choose either pass or fail");
 			return;
 		}
-		else {
-		results = databaseManager.saveResult(result, vehicle);
-		if (results != null)
-			printer.print(results, vehicle, databaseManager);
+	}
+	
+	// Called by any method in this class that has changed
+	// the class’ state.
+	private void notifyObservers(String result) {
+		for (ResultObserver obs : resultObservers) {
+			obs.newResult(result);
 		}
+	}
+	
+	/**
+	 * The specified observer will be notified when a new valid result is saved.
+	 * 
+	 * @param obs The observer to notify. 
+	 */
+	public void addResultObserver(ResultObserver obs) {
+		resultObservers.add(obs);
+	}
+	
+	/**
+	 * All the specified observers will be notified when a new valid result is saved.
+	 * 
+	 * @param observers The observers to notify. 
+	 */
+	public void addResultObserver(List<ResultObserver> observers) {
+		resultObservers.addAll(observers);
 	}
 }
