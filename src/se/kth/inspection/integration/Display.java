@@ -1,6 +1,6 @@
 package se.kth.inspection.integration;
 
-import se.kth.inspection.util.QueueNumber;
+import se.kth.inspection.model.QueueNumber;
 
 /**
  * Handles calls to the the Display.
@@ -17,7 +17,6 @@ public class Display {
 	public void showQueueNumber (QueueNumber queueNumber) {
 		showQueueNumberprivate(queueNumber);
 	}
-	
 	
 	private void showQueueNumberprivate (QueueNumber queueNumber) {
 		System.out.println("Queue number is " + queueNumber);
