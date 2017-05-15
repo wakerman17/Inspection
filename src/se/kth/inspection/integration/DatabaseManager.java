@@ -1,9 +1,6 @@
 package se.kth.inspection.integration;
 
-import se.kth.inspection.util.Inspect;
-import se.kth.inspection.util.InspectionAmount;
-import se.kth.inspection.util.Vehicle;
-import se.kth.inspection.util.Result;
+import se.kth.inspection.integration.InvalidRegistrationNumberException;
 
 /**
  * Handles all calls to the database.
@@ -16,16 +13,20 @@ public class DatabaseManager {
 	private int inspectionAmountPrimitive;
 	private int inspectIndex = 		-1;
 	private int resultIndex = 		0;
-	//private InspectionAmount inspectionAmount;
 	
 	/**
 	 * Calculates the amount of inspections.
 	 *
 	 * @param vehicle Information about the vehicle.
 	 * @return The amount of inspections.
+	 * @throws InvalidRegistrationNumberException if the registration number is invalid.
 	 */
-	public InspectionAmount howManyInspections (Vehicle vehicle) {
-		return howManyInspectionsPrivate(vehicle);
+	public InspectionAmount howManyInspections (Vehicle vehicle) throws InvalidRegistrationNumberException {
+		String regNo = vehicle.getVehiclePrimitive();
+		if (regNo != "ABC123") 
+			throw new InvalidRegistrationNumberException(vehicle);
+		inspectionAmountPrimitive = inspect.length;
+		return new InspectionAmount(inspectionAmountPrimitive);
 	}
 	
 	/**
@@ -35,7 +36,9 @@ public class DatabaseManager {
 	 * @return What to inspect.
 	 */
 	public Inspect whatToInspect (Vehicle vehicle) {
-		return whatToInspectPrivate(vehicle);
+		inspectIndex++;
+		inspect = 					inspectionArray(vehicle);
+		return inspect[inspectIndex];
 	}
 	
 	/**
@@ -45,8 +48,13 @@ public class DatabaseManager {
 	 * @param vehicle Information about the vehicle.
 	 * @return The array with all of the results if the last inspection are made. Otherwise null.
 	 */
-	public Result[] saveResult (String result, Vehicle vehicle) {
-		return saveResultPrivate(result, vehicle);
+	public Result[] saveResult (String result) {
+		results[resultIndex] = new Result(result);
+		resultIndex++;
+		if (resultIndex >= inspect.length){
+			return results;
+		}
+		return null;
 	}
 	
 	/**
@@ -59,36 +67,15 @@ public class DatabaseManager {
 		return inspectionArray(vehicle);
 	}
 	
-	
-	private InspectionAmount howManyInspectionsPrivate (Vehicle vehicle) {
-		inspectionAmountPrimitive = inspect.length;
-		return new InspectionAmount(inspectionAmountPrimitive);
-	}
-	
-	private Inspect whatToInspectPrivate (Vehicle vehicle) {
-		inspectIndex++;
-		inspect = 		inspectionArray(vehicle);
-		return inspect[inspectIndex];
-	}
-	
-	private Result[] saveResultPrivate (String result, Vehicle vehicle) {
-		results[resultIndex] = new Result(result);
-		resultIndex++;
-		if (resultIndex >= inspect.length){
-			return results;
-		}
-		return null;
-	}
-	
 	//Method only used by implementation
-	private Inspect[] inspectionArray (Vehicle vehicle) {
-		String regNo = vehicle.getVehiclePrimitive();
-		if (regNo == "ABC123"){
-			inspect[0] = new Inspect("Breakers");
-			inspect[1] = new Inspect("Engine");
-			inspect[2] = new Inspect("Windows");
-			return inspect;
-		}
+	private Inspect[] inspectionArray (Vehicle vehicleR) {
+		String regNo = vehicleR.getVehiclePrimitive();
+			if (regNo == "ABC123"){
+				inspect[0] = new Inspect("Breakers");
+				inspect[1] = new Inspect("Engine");
+				inspect[2] = new Inspect("Windows");
+				return inspect;
+			}
 		return null;
 	}
 }
