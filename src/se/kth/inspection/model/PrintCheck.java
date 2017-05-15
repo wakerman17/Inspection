@@ -2,9 +2,9 @@ package se.kth.inspection.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import se.kth.inspection.integration.Result;
 import se.kth.inspection.integration.DatabaseManager;
 import se.kth.inspection.integration.Printer;
-import se.kth.inspection.integration.Result;
 import se.kth.inspection.integration.Vehicle;
 
 /**
@@ -46,7 +46,7 @@ public class PrintCheck {
 	}
 	
 	// Called by any method in this class that has changed
-	// the class’ state.
+	// the classâ€™ state.
 	private void notifyObservers(String result) {
 		for (ResultObserver obs : resultObservers) {
 			obs.newResult(result);
