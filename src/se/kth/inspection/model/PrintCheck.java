@@ -45,8 +45,6 @@ public class PrintCheck {
 		}
 	}
 	
-	// Called by any method in this class that has changed
-	// the class’ state.
 	private void notifyObservers(String result) {
 		for (ResultObserver obs : resultObservers) {
 			obs.newResult(result);
