@@ -1,7 +1,14 @@
-package se.kth.inspection.view; 
+package se.kth.inspection.view;
 
 import se.kth.inspection.model.ResultObserver;
 
+/**
+ * Handles calls to the the inspection status display.
+ * 
+ * This implementation prints to
+ * <code>System.out</code> instead of the inspection status display.
+ * 
+ */
 class InspectionStatsView implements ResultObserver {
 	
 	private int passAmount = 0;
