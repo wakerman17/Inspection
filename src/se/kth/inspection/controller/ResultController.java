@@ -12,7 +12,6 @@ import se.kth.inspection.model.ResultObserver;
  * Controller which take care of the result of the inspection (pass or fail).
  *
  */
-
 public class ResultController {
 	
 	private PrintCheck printCheck;
