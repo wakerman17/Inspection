@@ -1,4 +1,5 @@
 package se.kth.inspection.view;
+
 /**
 * This class is responsible for showing error messages to the user.
 */
@@ -17,4 +18,4 @@ class ErrorMessageHandler {
 		errorMsgBuilder.append("\n");
 		System.out.println(errorMsgBuilder);
 	}
-} 
+}
