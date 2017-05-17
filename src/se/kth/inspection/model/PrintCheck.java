@@ -2,9 +2,9 @@ package se.kth.inspection.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import se.kth.inspection.integration.Result;
 import se.kth.inspection.integration.DatabaseManager;
 import se.kth.inspection.integration.Printer;
+import se.kth.inspection.integration.Result;
 import se.kth.inspection.integration.Vehicle;
 
 /**
@@ -51,15 +51,6 @@ public class PrintCheck {
 		for (ResultObserver obs : resultObservers) {
 			obs.newResult(result);
 		}
-	}
-	
-	/**
-	 * The specified observer will be notified when a new valid result is saved.
-	 * 
-	 * @param obs The observer to notify. 
-	 */
-	public void addResultObserver(ResultObserver obs) {
-		resultObservers.add(obs);
 	}
 	
 	/**
