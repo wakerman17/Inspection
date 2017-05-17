@@ -8,7 +8,7 @@ import se.kth.inspection.integration.InvalidRegistrationNumberException;
  */
 public class DatabaseManager {
 	
-	private Inspect[] inspect = 	new Inspect[3];
+	private Inspect[] inspect = 		new Inspect[3];
 	private Result[] results = 		new Result[3];
 	private int inspectionAmountPrimitive = 0;
 	private int inspectIndex = 		-1;
@@ -38,7 +38,7 @@ public class DatabaseManager {
 	 */
 	public Inspect whatToInspect (Vehicle vehicle) {
 		inspectIndex++;
-		inspect = 					inspectionArray(vehicle);
+		inspect = inspectionArray(vehicle);
 		return inspect[inspectIndex];
 	}
 	
