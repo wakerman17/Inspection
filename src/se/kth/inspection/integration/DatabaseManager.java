@@ -10,7 +10,7 @@ public class DatabaseManager {
 	
 	private Inspect[] inspect = 	new Inspect[3];
 	private Result[] results = 		new Result[3];
-	private int inspectionAmountPrimitive;
+	private int inspectionAmountPrimitive = 0;
 	private int inspectIndex = 		-1;
 	private int resultIndex = 		0;
 	
@@ -23,9 +23,7 @@ public class DatabaseManager {
 	 */
 	public InspectionAmount howManyInspections (Vehicle vehicle) throws InvalidRegistrationNumberException {
 		String regNo = vehicle.getVehiclePrimitive();
-		if (regNo != "ABC123") 
-			inspectionAmountPrimitive = 0;
-		else 
+		if (regNo == "ABC123") 
 			inspectionAmountPrimitive = inspect.length;
 		if (inspectionAmountPrimitive == 0)
 			throw new InvalidRegistrationNumberException(vehicle);
