@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 
 /**
  * This class is responsible for the log.
+ *
  */
 public class LogHandler {
 	
